@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div id="app">
+			<!-- first -->
+			<h1>{{ message }}</h1>
+			<!-- second -->
+			<h1 v-bind:class="ClassName">{{ message }}</h1>
+			<!-- third -->
+			<h2 v-if="show">SHow something</h2>
+			<!-- fourth -->
+			<ol v-show = "visible">
+				<li v-for = "list in lists">{{ list }}</li>
+			</ol>
+			<!-- fifth -->
+			<ul>
+				<li v-for="list in lists1">{{ list.social }}</li>
+			</ul>
+
+			<!-- sixth //v-model = value-->
+			<input type="text" v-model="message" class="form-control">
+
+			<!-- seventh -->
+			<button v-on:Click="enablelist">Show Lists</button> <!-- ShowList is the function name -->
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		new	 Vue ({
+			el : '#app',
+			data: {
+				// first
+				message : 'This is a vue first tutorial',
+				// second
+				ClassName: 'alert alert-danger',
+				// third
+				show: false,
+				// fourth
+				lists : ['nur', 'alam', 'shanto', 'sadia'],
+				// fifth
+				lists1 : [
+					{ name: 'Nur'},
+					{ name: 'Alam'},
+					{ social: 'Facebook'},
+					{ name: 'Shirajul'},
+					{ name: 'Nasima'}
+				],
+				visible : false
+			}, 
+
+			methods:{
+				enablelist : function(){
+					this.visible=true;
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>
