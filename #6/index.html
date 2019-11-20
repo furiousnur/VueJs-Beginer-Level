@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div id="app">
+			
+			<ul>
+				<!-- <li style="list-style: none;" v-for="(value, index, key) in list">
+					{{ key+1}} {{ index }} {{ value }}
+				</li> -->
+
+				<li style="list-style: none;" v-for="(value, index) in list">
+					{{ index+1 }} {{ value }}
+				</li>
+			</ul>
+
+			<div class="form-group col-ld-6">
+				<input type="text" class="form-control" name="text" v-model="newFruit">
+			</div>
+			<div class="form-group col-ld-6">
+				<button @click="add"  class="btn btn-info form-group">Add Me</button>
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		new Vue({
+			el: '#app',
+			data:{
+				/*list:{
+					fruit1:'mango',
+					fruit2:'banana',
+					fruit3:'coconut',
+					fruit4:'apple',
+				}*/
+
+				list:[
+					fruit1='mango',
+					fruit2='banana',
+					fruit3='coconut',
+					fruit4='apple',
+				], 
+
+				newFruit:''
+			},
+
+
+			methods:{
+				add:function(){
+					this.list.push(this.newFruit);
+					this.newFruit = '';
+				}
+			},
+
+
+			computed:{
+
+			},
+
+
+			watch:{
+
+			},
+		});
+	</script>
+
+</body>
+</html>
