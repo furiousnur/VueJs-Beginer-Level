@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div id="app">
+			<br>
+			<!-- <div v-if="show">Microsoft</div>
+			<div v-else-if="show">Google</div>
+			<div v-else="show">Not</div> -->
+
+			<div v-if="show==show1">Windows</div>
+
+			<div class="form-group col-lg-6">
+				<input type="text" name="" v-model="text" class="form-control">
+			</div>
+			<div class="form-group col-lg-6">
+				<button class="btn btn-success" v-on:Click="find">Show this</button>
+			</div>
+
+			<div class="form-group col-lg-6">
+				<ol>
+					<!-- <li v-for="user in users">
+						<h4>Name: {{ user.name }} <br> Email: {{ user.email }}</h4>
+					</li>-->
+
+
+					<li v-for="user in users" v-if="user.name == value || user.email == value">
+						<h4>Name: {{ user.name }}</h4>
+					</li> 
+				</ol>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		new	 Vue ({
+			
+			el: '#app',
+			data:{
+
+				users:[
+					{name:'Nur', email: 'nur@gmail.com'},
+					{name:'Alam', email: 'alam@gmail.com'},
+				],
+
+				show:false,
+				show1:true,
+
+				value:'',
+				text:''
+			},
+
+			methods:{
+				find:function(){
+					this.value = this.text
+				}
+			}
+
+		});	
+
+	</script>
+
+</body>
+</html>
